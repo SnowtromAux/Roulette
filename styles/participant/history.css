@@ -1,0 +1,55 @@
+.roulette-history{
+    position: absolute;
+    display: flex;
+    bottom: 140px;
+    right: 25px;
+}
+
+.roulette-history >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 23px;
+    font-weight: bold;
+}
+
+.roulette-history >div.red{
+    color: red;
+}
+
+.roulette-history >div.black{
+    color: white;
+}
+
+.roulette-history >div.green{
+    color: limegreen;
+}
+
+
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+    .roulette-history{
+        top: 7.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        bottom: auto;
+    }
+
+    .roulette-history >div{
+        width: 40px;
+        font-size: 25px;
+        background: rgba(0 , 0 , 0 , 0.9);
+        border: 1px solid white;
+    }
+
+    .roulette-history >div:nth-child(1){
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .roulette-history >div:last-child{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}

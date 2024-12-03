@@ -1,0 +1,95 @@
+.roulette-timer{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    left: 610px;
+    top: 340px;
+    box-shadow: 0 0 0 2px inset line;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.roulette-progress{
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+    background: #222;
+    border-radius: 50%;
+}
+
+
+
+.roulette-timer-label{
+    position: absolute;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.scaling {
+    animation: scaleUpDown 1s infinite;
+}
+
+.roulette-bets-closed-text{
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  width: 627px;
+  left: 22.5px;
+  height: 20px;
+  color: white;
+  transform: translateY(110%);
+}
+
+.roulette-bets-closed-text.active{
+  animation: blink-animation 2s infinite;
+  animation-delay: 0.75s;
+}
+
+
+
+@keyframes scaleUpDown {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes blink-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+
+
+
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+  .roulette-timer{
+    top: 80px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .roulette-progress{
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+  }
+
+  .roulette-timer-label{
+    font-size: 30px;
+  }
+
+  .roulette-bets-closed-text{
+    left: 350px;
+    top: 240px;
+  }
+}

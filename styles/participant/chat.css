@@ -1,0 +1,143 @@
+.roulette-chat{
+    top: 50px;
+    width: 265px;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.roulette-message-input{
+    width: 265px;
+    height: 22px;
+    border-radius: 25px;
+    padding: 5px 15px;
+    border: 2px solid gray;
+    color: white;
+    background: rgba(26, 26, 26, .9);
+}
+
+.roulette-message-input.expanded{
+    width: 200px;
+}
+
+.roulette-send-message{
+    display: none;
+}
+
+.roulette-message-input.expanded ~ .roulette-send-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: rgba(255 , 255 ,255 ,0.9);
+    cursor: pointer;
+}
+
+.roulette-send-message:hover >img{
+    transform: rotate(45deg) translate(-1px , 1px);
+    transform-origin: center;
+}
+
+.roulette-send-message >img{
+    width: 20px;
+    height: 20px;
+    transition: 0.3s;
+}
+
+.roulette-chat-box{
+    background-color: gray;
+    position: absolute;
+    width: 240px;
+    top: 100px;
+    left: -100px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 7.5px 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: all 1s ease-out;
+    z-index: 5;
+}
+
+.message-player-name{
+    font-size: 12px;
+    color: skyblue;
+    font-weight: bold;
+}
+
+.message-text{
+    color: rgba(255 , 255 ,255 ,0.9);
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.message-status{
+    font-size: 11px;
+    color: red;
+    font-weight: bolder;
+}
+
+
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+    .roulette-chat{
+        top: 55px;
+        width: 295px;
+        padding: 5px;
+        display: flex;
+        gap: 7.5px;
+    }
+    
+    .roulette-message-input{
+        width: 295px;
+        height: 30px;
+        font-size: 23px;
+    }
+    
+    .roulette-message-input.expanded{
+        width: 260px;
+    }
+
+    .roulette-message-input.expanded ~ .roulette-send-message{
+        height: 30px;
+        width: 30px;
+    }
+
+    .roulette-send-message >img{
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .roulette-chat-box{
+        top: 110px;
+        width: 270px;
+        padding: 5px 7.5px;
+    }
+
+    .message-player-name{
+        font-size: 15px;
+    }
+
+    .message-text{
+        font-size: 20px;
+    }
+
+    .message-status{
+        font-size: 14px;
+    }
+}
+
+/* Disable hover effect for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .roulette-send-message:hover >img{
+        transform: none;
+    }
+}

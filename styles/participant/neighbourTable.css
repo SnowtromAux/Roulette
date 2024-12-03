@@ -1,0 +1,51 @@
+
+.roulette-neighbour-table{
+    cursor: pointer;
+    position: absolute;
+    width: 270px;
+    bottom: 60px;
+    right: 35px;
+}
+
+.roulette-neighbour-table-settings{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    bottom: 65px;
+    right: 12.5px;
+}
+
+.roulette-neighbour-table-settings >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.roulette-neighbour-table-settings >div.inactive{
+    opacity: 0.7;
+    cursor: auto;
+}
+
+.roulette-neighbour-table-settings >label{
+    color: white;
+}
+
+
+
+
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+    .roulette-neighbour-table,
+    .roulette-neighbour-table-settings{
+        display: none;
+    }
+}

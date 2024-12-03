@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+*{
+    user-select: none;
+}
+
+.roulette-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100svh;
+}
+
+.roulette-body{
+    aspect-ratio: 16 / 9;
+    height: 720px;
+    width: 1280px;
+    position: relative;
+    background: #ddd;
+}
+
+.roulette-body >div{
+    position: absolute;
+}
+
+/* Disable hover effect for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    *{
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+}

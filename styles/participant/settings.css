@@ -1,0 +1,45 @@
+.roulette-settings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    gap: 10px;
+}
+
+.roulette-settings >img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid gray;
+    cursor: pointer;
+    background: rgba(26, 26, 26, .9);
+    transition: 0.15s;
+}
+
+.roulette-settings >img:hover{
+    box-shadow: 0 0 5px rgba(255 , 255 ,255 ,0.9) inset;
+}
+
+
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+    .roulette-settings{
+        gap: 7.5px;
+    }
+    
+    .roulette-settings >img{
+        width: 37px;
+        height: 37px;
+    }
+}
+
+
+/* Disable hover effect for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .roulette-settings >img:hover{
+        box-shadow: none;
+    }
+}

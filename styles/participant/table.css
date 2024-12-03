@@ -1,0 +1,125 @@
+.roulette-normal-table-wrapper{
+    position: absolute;
+    width: 650px;
+    height: min-content;
+    bottom: 90px;
+    left: 305px;
+}
+
+.normal-table >svg{
+    transition: all 0.75s ease-out;
+}
+
+.roulette-normal-table-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.75s ease-out;
+}
+
+
+
+
+.table-area{
+    position: relative;
+    transition: all 0.75s ease-out;
+    width: 100%;
+    height: 100%;
+}
+
+.bet-area-0{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    width: 7.5%;
+    height: 68.5%;
+    clip-path: polygon(100% 0%, 50% 0%, 0% 50%, 50% 100%, 100% 100%);
+    top: 0%;
+}
+
+.bet-area-row-1 , .bet-area-row-3 , .bet-area-row-5{
+    left: 5%;
+    width: 95%;
+    height: 23%;
+    cursor: pointer;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(23, 1fr) 1.5fr 1.7fr;
+    z-index: 3;
+}
+
+.bet-area-row-1{
+    top: 0;
+}
+
+.bet-area-row-3{
+    top: 23%;
+}
+
+.bet-area-row-5{
+    top: 46%;
+}
+
+
+
+.bet-area-row-2 , .bet-area-row-4 , .bet-area-row-6{
+    left: 5%;
+    width: 95%;
+    height: 8%;
+    cursor: pointer;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(23, 1fr) 1.5fr 1.7fr;
+    z-index: 5;
+}
+
+.bet-area-row-2{
+    top: 19%;
+}
+
+.bet-area-row-4{
+    top: 42%;
+}
+
+.bet-area-row-6{
+    top: 65%;
+}
+
+
+.bet-area-row-7{
+    cursor: pointer;
+    position: absolute;
+    left: 7%;
+    width: 87%;
+    bottom: 17%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 15%;
+}
+
+.bet-area-row-8{
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    left: 7%;
+    width: 87%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 15%;
+}
+
+
+
+
+
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+    .roulette-normal-table-wrapper{
+        width: 1170px;
+        top: 185px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
