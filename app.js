@@ -1,17 +1,13 @@
-// Import express
 const express = require('express');
 const path = require('path');
 
-// Create an Express application
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  // Specify the path of the HTML file
   const filePath = path.join(__dirname, 'public' , '/views/index.html');
   
-  // Send the HTML file as the response
   res.sendFile(filePath, (err) => {
     if (err) {
       console.log('Error sending the file:', err);
@@ -20,8 +16,8 @@ app.get('/', (req, res) => {
   });
 });
 
-// Start the server on 0.0.0.0 to accept connections from any device
+
 const PORT = 3000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on http://0.0.0.0:${PORT}`);
+  console.log(`Server is running on localhost:${PORT}`);
 });
