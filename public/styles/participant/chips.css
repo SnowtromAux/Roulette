@@ -19,6 +19,7 @@
     bottom: 20px;
     left: 347px;
     transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+    z-index: 999;
 }
 
 

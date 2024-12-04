@@ -27,13 +27,14 @@
 
 @media only screen and (max-device-width: 926px) and (orientation: landscape) {
     .roulette-settings{
-        gap: 7.5px;
+        display: none;
+        /* gap: 7.5px; */
     }
-    
+/*     
     .roulette-settings >img{
         width: 37px;
         height: 37px;
-    }
+    } */
 }
 
 

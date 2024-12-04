@@ -1,3 +1,8 @@
+.roulette-neighbour-table-wrapper{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
 .roulette-neighbour-table{
     cursor: pointer;
@@ -14,8 +19,8 @@
     align-items: center;
     flex-direction: column;
     gap: 5px;
-    bottom: 65px;
-    right: 12.5px;
+    bottom: 67px;
+    right: 10px;
 }
 
 .roulette-neighbour-table-settings >div{
@@ -44,8 +49,27 @@
 
 
 @media only screen and (max-device-width: 926px) and (orientation: landscape) {
-    .roulette-neighbour-table,
-    .roulette-neighbour-table-settings{
+    .roulette-neighbour-table-wrapper{
+        width: 1170px;
+        top: 225px;
+        left: 50%;
+        transform: translateX(-50%);
         display: none;
     }
+
+    .roulette-neighbour-table{
+        transition: all 0.75s ease-out;
+        transition: all 0.75s ease-out;
+        width: 1150px;
+        top: 0px;
+        right: 35px;
+    }
+
+    .roulette-neighbour-table-settings{
+        height: fit-content;
+        transform: scale(3);
+        top: 120px;
+        right: -15px;
+    }
+
 }

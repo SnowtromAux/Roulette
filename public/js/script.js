@@ -239,6 +239,9 @@ class Buttons{
         this.paytable_pinned = false;
 
         this.fullscreen_mode = false;
+        this.normal_table_mode = true;
+        
+        this.burger_opened = false;
         this.init();
     }
 
@@ -246,6 +249,8 @@ class Buttons{
         this.setupExitBtn();
         this.setupPinBtn();
         this.setupFullScreenBtn();
+        this.setupChangeTableBtn();
+        this.setupMenuButton();
     }
 
     setupExitBtn(){
@@ -257,13 +262,19 @@ class Buttons{
     }
 
     setupPinBtn(){
-        console.log('here')
+        this.paytable_opened = false;
         const pin_btn = document.querySelector('.roulette-pin');
         const paytable = document.querySelector('.roulette-paytable');
 
+        console.log("wtf")
         pin_btn.addEventListener('click' , () => {
-            console.log(this.paytable_pinned)
-            this.paytable_pinned = !this.paytable_pinned;
+            this.paytable_opened = !this.paytable_opened;
+            if(this.paytable_opened)
+                paytable.classList.add('pinned');
+            else
+                paytable.classList.remove('pinned');
+    
+                this.paytable_pinned = !this.paytable_pinned;
             if(this.paytable_pinned)
                 pin_btn.classList.add('pinned');
             else
@@ -309,6 +320,43 @@ class Buttons{
 
                 fullscreen_btn.src = "../assets/btn-fullscreen.png";
             }
+        });
+    }
+
+    setupChangeTableBtn(){
+        const btn = document.querySelector('.roulette-change-table');
+
+        btn.addEventListener('click' , () => {
+            this.normal_table_mode = !this.normal_table_mode;
+
+            const normal_table_el = document.querySelector('.roulette-normal-table-wrapper');
+            const neighbour_table_el = document.querySelector('.roulette-neighbour-table-wrapper');
+
+            const change_table_btn_img = btn.querySelector('img');
+
+            if(this.normal_table_mode){
+                normal_table_el.style.display = 'block';
+                neighbour_table_el.style.display = 'none';
+                change_table_btn_img.src = "../assets/button-neighbours-table.svg";
+            }else{
+                normal_table_el.style.display = 'none';
+                neighbour_table_el.style.display = 'block';
+                change_table_btn_img.src = "../assets/button-normal-table.svg";
+            }
+        })
+    }
+
+    setupMenuButton(){
+        const menu_btn = document.querySelector('.roulette-burger-icon');
+        const menu = document.querySelector('.roulette-dropdown-menu');
+
+        menu_btn.addEventListener('click' , () => {
+            this.burger_opened = !this.burger_opened;
+
+            if(this.burger_opened)
+                menu.classList.add('opened');
+            else
+                menu.classList.remove('opened');
         })
     }
 }
@@ -464,10 +512,10 @@ class Game{
 
     setupValues(){
         this.screen = new Screen();
-        this.server = new Server(this);
         this.helper = new Helper();
         this.device = new Device();
         this.bet_buttons = new BetButtons();
+        this.server = new Server(this);
     }
 
 
@@ -481,6 +529,15 @@ class Game{
         const bet_table_box = document.querySelector('.roulette-normal-table');
         const bet_table_el = bet_table_box.querySelector('svg');
 
+        console.log(this.device)
+        if(this.device.type === 'mobile'){
+            const neighbour_table_el = document.querySelector('.roulette-neighbour-table');
+            const neighbour_table_settings = document.querySelector('.roulette-neighbour-table-settings');
+        
+            neighbour_table_el.style.transform = 'rotateX(0) translateY(0)';
+            neighbour_table_settings.style.opacity = 1;
+        }
+
         bet_table_box.style.perspective = 'none';
         bet_table_el.style.transform = 'rotateX(0) translateY(0)';
 
@@ -492,12 +549,10 @@ class Game{
         cells.forEach((cell)=>cell.normalizeColorField());
 
 
-        // Hide and move the bets
         const bets_box = document.querySelector('.roulette-bets');
         bets_box.style.opacity = 1;
         bets_box.style.transform = 'translateY(0)';
 
-        // Show Next game soon text
         const bets_closed_text = document.querySelector('.roulette-bets-closed-text');
         bets_closed_text.classList.remove('active');
     }
@@ -540,11 +595,17 @@ class Game{
                 const bet_table_overlay_box = document.querySelector('.roulette-normal-table-overlay');
                 const bet_table_overlay_el = bet_table_overlay_box.querySelector('.table-area');
 
+                const neighbour_table_el = document.querySelector('.roulette-neighbour-table');
+                const neighbour_table_settings = document.querySelector('.roulette-neighbour-table-settings');
+
                 const bet_table_box = document.querySelector('.roulette-normal-table');
                 const bet_table_el = bet_table_box.querySelector('svg');
 
-                bet_table_el.style.transform = 'translate(62.5px, 200px) scale(0.5)';
-                bet_table_overlay_el.style.transform = 'translate(62.5px, 200px) scale(0.5)';
+                bet_table_el.style.transform = 'translate(25px , 200px) scale(0.5)';
+                bet_table_overlay_el.style.transform = 'translate(25px , 200px) scale(0.5)';
+
+                neighbour_table_el.style.transform = 'translate(45px , 175px) scale(0.5)';
+                neighbour_table_settings.style.opacity = 0;
 
                 const cells = this.player.cells;
                 cells.forEach((cell)=>cell.normalizeColorField());
@@ -552,7 +613,7 @@ class Game{
 
                 const bets_box = document.querySelector('.roulette-bets');
                 bets_box.style.opacity = 0;
-                bets_box.style.transform = 'translateY(200px)';    
+                bets_box.style.transform = 'translateY(200px)';
             } , 200)
         }else{
             // Tilt the bet Table
