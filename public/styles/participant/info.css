@@ -47,8 +47,7 @@
     left: -500px;
     opacity: 0;
     width: 350px;
-    padding: 20px 0;
-    top: 35px;
+    top: 55px;
     z-index: 999;
     transition: all 0.5s;
 }
@@ -99,6 +98,27 @@ tr:hover {
         height: 30px;
     }
 }
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-data{
+        top: 47.5px;
+        transform: scale(1.2);
+        transform-origin: top left;
+    }
+
+    .roulette-exit{
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    .roulette-paytable{
+        top: 90px;
+        transform: scale(1.5);
+        transform-origin: top left;
+    }
+}
+
 
 
 /* Disable hover effect for mobile devices */

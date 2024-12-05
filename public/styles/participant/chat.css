@@ -135,6 +135,12 @@
     }
 }
 
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-chat{
+        display: none;
+    }
+}
+
 /* Disable hover effect for mobile devices */
 @media (hover: none) and (pointer: coarse) {
     .roulette-send-message:hover >img{

@@ -20,6 +20,7 @@ input:focus {
     align-items: center;
     width: 100vw;
     height: 100svh;
+    overflow: hidden;
 }
 
 .roulette-body{
@@ -44,5 +45,13 @@ input:focus {
         -ms-user-select:none;
         user-select:none;
         -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+}
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-body{
+        aspect-ratio: 9 / 16;
+        height: 1280px;
+        width: 720px;
     }
 }

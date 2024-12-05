@@ -100,7 +100,7 @@
     font-weight: bold;
 }
 
-@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+@media only screen and (max-device-width: 926px){
     .roulette-bets{
         left: 530px;
         gap: 15px;
@@ -167,6 +167,17 @@
 
     .chip-label{
         font-size: 15px;
+    }
+}
+
+
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-bets{
+        top: 0px;
+        right: 0px;
+        flex-direction: column;
+        transform: scale(1.3);
     }
 }
 

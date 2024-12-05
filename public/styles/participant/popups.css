@@ -753,6 +753,17 @@ li {
 }
 
 
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-info{
+        flex-direction: column;
+        right: 50px;
+        bottom: 200px;
+        gap: 7.5px;
+        transform: scale(1.75);
+    }
+}
+
+
 
 
 /* Disable hover effect for mobile devices */

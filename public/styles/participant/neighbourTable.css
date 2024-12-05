@@ -71,5 +71,11 @@
         top: 120px;
         right: -15px;
     }
+}
 
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-neighbour-table-wrapper{
+        display: none;
+    }
 }

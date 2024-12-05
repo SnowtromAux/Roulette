@@ -37,6 +37,13 @@
     } */
 }
 
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-settings{
+        display: none;
+        /* gap: 7.5px; */
+    }
+}
+
 
 /* Disable hover effect for mobile devices */
 @media (hover: none) and (pointer: coarse) {

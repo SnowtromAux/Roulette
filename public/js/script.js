@@ -381,10 +381,18 @@ class Screen{
         const wrapper_h = wrapper.offsetHeight;
         const aspectRatio = wrapper_w / wrapper_h;
             
-        if (aspectRatio > 16 / 9) {
-            body.style.transform = `scale(${wrapper_h / BODY_H})`;
-        } else {
-            body.style.transform = `scale(${wrapper_w / BODY_W})`;
+        if (window.matchMedia("(max-device-width: 926px)").matches && window.matchMedia("(orientation: portrait)").matches){
+            if (aspectRatio > 9 / 16) {
+                body.style.transform = `scale(${wrapper_h / 1280})`;
+            } else {
+                body.style.transform = `scale(${wrapper_w / 720})`;
+            }
+        }else{
+            if (aspectRatio > 16 / 9) {
+                body.style.transform = `scale(${wrapper_h / BODY_H})`;
+            } else {
+                body.style.transform = `scale(${wrapper_w / BODY_W})`;
+            }
         }
     }
 
@@ -445,13 +453,13 @@ class Server{
         //In ms
         this.bet_interval = undefined;    
         this.bet_time_passed = 0;
-        this.bet_total_time = 10000;
+        this.bet_total_time = 1000000;
         this.bet_update_on = 1000;
 
 
         this.game_interval = undefined;    
         this.game_time_passed = 0;
-        this.game_total_time = 10000;
+        this.game_total_time = 100000000;
         this.game_update_on = 1000;
     }
 

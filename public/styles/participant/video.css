@@ -1,7 +1,7 @@
 /* ROULETTE LIVE VIDEO */
 .roulette-live-video{
     width: 1280px;
-    height: 720px;
+    aspect-ratio: 16 / 9;
 }
 
 /* ROULETTE BACKGROUND SHADOW */
@@ -11,4 +11,15 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom , transparent , black);
+}
+
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-live-video{
+        width: 720px;
+    }
+
+    .roulette-bg-shadow-effect{
+        background: linear-gradient(to bottom , transparent , black , black , black);
+    }
 }

@@ -27,7 +27,7 @@
 }
 
 
-@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+@media only screen and (max-device-width: 926px) {
     .roulette-history{
         top: 7.5px;
         left: 50%;
