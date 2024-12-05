@@ -130,4 +130,9 @@
         top: 450px;
         transform: rotate(90deg) translateY(150%) scaleY(1.1);
     }
+
+
+    .roulette-normal-table >svg{
+        transform-origin: bottom right;
+    }
 }

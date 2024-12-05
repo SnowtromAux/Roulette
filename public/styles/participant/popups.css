@@ -761,7 +761,21 @@ li {
         gap: 7.5px;
         transform: scale(1.75);
     }
+
+    .roulette-autoplay-popup , .roulette-statistics , .roulette-favorites{
+        transform: scale(1.75);
+        transform-origin: bottom right;
+        right: 140px;
+        bottom: 125px;
+    }
+
+    .roulette-autoplay-popup.opened , .roulette-statistics.opened , .roulette-favorites.opened{
+        right: 160px;
+        bottom: 125px;
+    }
 }
+
+
 
 
 

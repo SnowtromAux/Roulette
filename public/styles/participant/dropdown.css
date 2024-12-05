@@ -3,8 +3,7 @@
 }
 
 
-@media only screen and (max-device-width: 926px) and (orientation: landscape) {
-
+@media only screen and (max-device-width: 926px){
     .roulette-dropdown-menu{
         display: block;
         right: 0;
@@ -80,5 +79,11 @@
     .roulette-dropdown-container >div >label{
         color: white;
         font-size: 30px;
+    }
+}
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+    .roulette-dropdown-menu{
+        z-index: 999;
     }
 }

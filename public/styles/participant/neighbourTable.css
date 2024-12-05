@@ -59,7 +59,6 @@
 
     .roulette-neighbour-table{
         transition: all 0.75s ease-out;
-        transition: all 0.75s ease-out;
         width: 1150px;
         top: 0px;
         right: 35px;
@@ -77,5 +76,20 @@
 @media only screen and (max-device-width: 926px) and (orientation: portrait) {
     .roulette-neighbour-table-wrapper{
         display: none;
+    }
+
+    .roulette-neighbour-table{
+        transform: rotate(90deg) scaleY(1.2);
+        width: 1150px;
+        bottom: 60px;
+        right: 550px;
+        transition: transform 0.75s ease-out;
+        transform-origin: bottom right;
+    }
+
+    .roulette-neighbour-table-settings {
+        bottom: 620px;
+        right: 615px;
+        transform: scale(4);
     }
 }

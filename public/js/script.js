@@ -453,13 +453,13 @@ class Server{
         //In ms
         this.bet_interval = undefined;    
         this.bet_time_passed = 0;
-        this.bet_total_time = 1000000;
+        this.bet_total_time = 1000;
         this.bet_update_on = 1000;
 
 
         this.game_interval = undefined;    
         this.game_time_passed = 0;
-        this.game_total_time = 100000000;
+        this.game_total_time = 2000;
         this.game_update_on = 1000;
     }
 
@@ -537,12 +537,15 @@ class Game{
         const bet_table_box = document.querySelector('.roulette-normal-table');
         const bet_table_el = bet_table_box.querySelector('svg');
 
-        console.log(this.device)
         if(this.device.type === 'mobile'){
             const neighbour_table_el = document.querySelector('.roulette-neighbour-table');
             const neighbour_table_settings = document.querySelector('.roulette-neighbour-table-settings');
         
-            neighbour_table_el.style.transform = 'rotateX(0) translateY(0)';
+            if(this.device.orientation === 'landscape')
+                neighbour_table_el.style.transform = 'rotateX(0) translateY(0)';
+            else
+                neighbour_table_el.style.transform = 'rotate(90deg) scaleY(1.2) translateY(0)';
+
             neighbour_table_settings.style.opacity = 1;
         }
 
@@ -559,7 +562,12 @@ class Game{
 
         const bets_box = document.querySelector('.roulette-bets');
         bets_box.style.opacity = 1;
-        bets_box.style.transform = 'translateY(0)';
+
+        if(this.device.type === 'mobile' && this.device.orientation === 'portrait'){
+            bets_box.style.transform = 'scale(1)';
+        }else{
+            bets_box.style.transform = 'translateY(0)';
+        }
 
         const bets_closed_text = document.querySelector('.roulette-bets-closed-text');
         bets_closed_text.classList.remove('active');
@@ -609,11 +617,19 @@ class Game{
                 const bet_table_box = document.querySelector('.roulette-normal-table');
                 const bet_table_el = bet_table_box.querySelector('svg');
 
-                bet_table_el.style.transform = 'translate(25px , 200px) scale(0.5)';
-                bet_table_overlay_el.style.transform = 'translate(25px , 200px) scale(0.5)';
+                if(this.device.orientation === 'landscape'){
+                    bet_table_el.style.transform = 'translate(25px , 200px) scale(0.5)';
+                    bet_table_overlay_el.style.transform = 'translate(25px , 200px) scale(0.5)';
 
-                neighbour_table_el.style.transform = 'translate(45px , 175px) scale(0.5)';
-                neighbour_table_settings.style.opacity = 0;
+                    neighbour_table_el.style.transform = 'translate(45px , 175px) scale(0.5)';
+                    neighbour_table_settings.style.opacity = 0;
+                }else{
+                    bet_table_el.style.transform = 'translateY(-100px) scale(0.65)';
+                    bet_table_overlay_el.style.transform = 'translateY(-100px) scale(0.65)';
+
+                    neighbour_table_el.style.transform = 'rotate(90deg) translateY(-100px) scale(0.65)';
+                    neighbour_table_settings.style.opacity = 0;
+                }
 
                 const cells = this.player.cells;
                 cells.forEach((cell)=>cell.normalizeColorField());
@@ -621,7 +637,12 @@ class Game{
 
                 const bets_box = document.querySelector('.roulette-bets');
                 bets_box.style.opacity = 0;
-                bets_box.style.transform = 'translateY(200px)';
+
+                if(this.device.type === 'mobile' && this.device.orientation === 'portrait'){
+                    bets_box.style.transform = 'scale(0)';
+                }else{
+                    bets_box.style.transform = 'translateY(200px)';
+                }
             } , 200)
         }else{
             // Tilt the bet Table

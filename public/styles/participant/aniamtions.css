@@ -93,3 +93,27 @@
     top: 425px;
   }
 }
+
+
+@media only screen and (max-device-width: 926px) and (orientation: portrait) {
+  .roulette-timer{
+    width: 90px;
+    height: 90px;
+    top: 340px;
+    right: 50px;
+    left: auto;
+  }
+
+  .roulette-progress{
+    width: calc(100% - 23px);
+    height: calc(100% - 23px);
+  }
+
+  .roulette-timer-label{
+    font-size: 30px;
+  }
+
+  .roulette-bets-closed-text{
+    left: 62.5px;
+  }
+}
