@@ -453,13 +453,13 @@ class Server{
         //In ms
         this.bet_interval = undefined;    
         this.bet_time_passed = 0;
-        this.bet_total_time = 1000;
+        this.bet_total_time = 20000;
         this.bet_update_on = 1000;
 
 
         this.game_interval = undefined;    
         this.game_time_passed = 0;
-        this.game_total_time = 2000;
+        this.game_total_time = 5000;
         this.game_update_on = 1000;
     }
 
