@@ -76,6 +76,7 @@
 @media only screen and (max-device-width: 926px) and (orientation: portrait) {
     .roulette-neighbour-table-wrapper{
         display: none;
+        z-index: 500;
     }
 
     .roulette-neighbour-table{
