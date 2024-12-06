@@ -213,7 +213,11 @@ class BetButtons{
         this.menu_opened = !this.menu_opened
         if(this.menu_opened){
             this.chip_buttons.forEach((chip_button , index) => {
-                chip_button.style.transform = `translate(${this.chip_positions_landscape[index].x} , ${this.chip_positions_landscape[index].y})`
+                if(this.device.type === 'mobile' && this.device.orientation === 'portrait'){
+                    chip_button.style.transform = `translate(${this.chip_positions_landscape[index].x} , ${this.chip_positions_landscape[index].y}) rotate(90deg)`
+                }else{
+                    chip_button.style.transform = `translate(${this.chip_positions_landscape[index].x} , ${this.chip_positions_landscape[index].y})`
+                }
                 chip_button.style.zIndex = '1';
             })
         }else{
@@ -228,8 +232,11 @@ class BetButtons{
         this.menu_opened = false;
 
         this.chip_buttons.forEach((chip_button) => {
-            chip_button.style.transform = 'translate(0 , 0)';
-            console.log(chip_button)
+            if(this.device.type === 'mobile' && this.device.orientation === 'portrait'){
+                chip_button.style.transform = 'translate(0 , 0) rotate(90deg)';
+            }else{
+                chip_button.style.transform = 'translate(0 , 0)';
+            }
         })
     }
 }

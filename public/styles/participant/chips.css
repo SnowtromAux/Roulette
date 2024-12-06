@@ -189,13 +189,19 @@
     }
 
     .roulette-chips-box{
+        transform: rotate(-90deg);
         width: 102px;
         height: 102px;
     }
 
     .roulette-chip-puller{
+        transform: rotate(90deg);
         width: 90px;
         height: 90px;
+    }
+
+    .roulette-chip{
+        transform: rotate(90deg);
     }
 
     .roulette-chip >span{
